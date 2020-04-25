@@ -30,8 +30,8 @@ public class CitizenServiceImpl implements CitizenService {
     }
 
     @Override
-    public Optional<Citizen> getCitizenByCNI(String CNI) {
-        return Optional.of(citizenRepository.findByCNI(CNI));
+    public Optional<Citizen> getCitizenByCni(String cni) {
+        return Optional.of(citizenRepository.findByCni(cni));
     }
 
     @Override

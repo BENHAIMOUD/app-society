@@ -15,7 +15,7 @@ public interface CitizenService {
     Optional<Citizen> getCitizenById(Long id);
 
     //find Citizen by CNI
-    Optional<Citizen> getCitizenByCNI(String CNI);
+    Optional<Citizen> getCitizenByCni(String cni);
 
     // update Citizen
     Optional<Citizen> update(Citizen citizen);

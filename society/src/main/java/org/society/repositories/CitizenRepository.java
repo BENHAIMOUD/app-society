@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public  interface CitizenRepository extends JpaRepository<Citizen, Long> {
-    Citizen findByCNI(String CNI);
+    Citizen findByCni(String cni);
 }

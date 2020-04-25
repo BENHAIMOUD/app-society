@@ -2,6 +2,7 @@ package org.society.controllers;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.society.exceptions.CitizenAlreadyExistsException;
 import org.society.exceptions.ResourceNotFoundException;
 import org.society.models.Citizen;
 import org.society.services.CitizenService;
@@ -62,18 +63,18 @@ public class CitizenController {
 
     /**
      * find citizen by his CNI
-     * @param CNI
+     * @param cni
      * @return
      * @throws Exception
      */
 
     //@ApiOperation(value = "", response = Citizen.class)
-    @GetMapping(value = "/{CNI}", produces ="application/json")
-    public ResponseEntity<Citizen> finCitizenByCNI(@PathVariable("CNI") String CNI){
-        // logger.debug("display citizen his CNI:"+CNI);
-        Citizen result =citizenService.getCitizenByCNI(CNI)
+    @GetMapping(value = "/{cni}", produces ="application/json")
+    public ResponseEntity<Citizen> finCitizenByCni(@PathVariable("cni") String cni){
+        // logger.debug("display citizen his cni:"+cni);
+        Citizen result =citizenService.getCitizenByCni(cni)
                 .orElseThrow(()-> {
-                            return new ResourceNotFoundException("No Citizen with CNI :"+ CNI);
+                            return new ResourceNotFoundException("No Citizen with cni :"+ cni);
                         }
                 );
         return new ResponseEntity<>(result, HttpStatus.OK);
@@ -131,6 +132,7 @@ public class CitizenController {
         msg.put("message", "citizens successfully deleted");
         return new ResponseEntity<Map<String, Object>>(msg , HttpStatus.OK);
     }
+
 
 
 }
